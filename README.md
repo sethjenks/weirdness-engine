@@ -120,7 +120,7 @@ The methodology draws from:
 - **Liquid Death**, **Old Spice**, and other case studies — proof that this works commercially, not just artistically.
 - Cognitive science: the **Von Restorff effect**, **Expectancy Violation Theory** (Burgoon), **Benign Violation Theory** (McGraw & Warren), and the **Meaning Maintenance Model** (Proulx & Heine).
 
-Built by [Seth Jenks](https://github.com/sethjenks) at [Arcana](https://arcana.design).
+Built by [Seth Jenks](https://github.com/sethjenks) at [Arcana](https://arcana.agency).
 
 ## License
 
