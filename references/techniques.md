@@ -223,3 +223,14 @@ When applying any technique, these are the web design surfaces where weirdness c
 - Selection and highlight styling
 
 Each direction should target a different surface level to ensure the five directions give the user genuine variety — not five variations on "make the hero weird."
+
+**Layout / editorial surfaces** (Layout mode — cite an inventory ID instead of inventing a surface name):
+
+- Spread format, margins, and pacing (opener / body / breather / closer)
+- Column rhythm and spanning
+- Named empty space and visible grid
+- Hierarchy and reading order
+- Type as geometry (crop, scatter, wordmark as field)
+- Folios, running heads, captions, pull quotes
+
+See `references/layout-conventions.md` for IDs, `references/editorial-grids.md` for the hold, and `references/letter-crop-scatter.md` when the surface is cropped type. Do not treat "break the grid" as a technique.

@@ -1,6 +1,6 @@
 # Weirdness Engine
 
-> A Claude skill that pushes web designs toward productive strangeness — the outlier space where memorable, category-defying work lives.
+> A Claude skill that pushes web and editorial designs toward productive strangeness — the outlier space where memorable, category-defying work lives.
 
 Most AI design tools converge on the average. They aggregate references and produce work that looks like everything else in the category. "Make it weirder" without structure produces scattered randomness, which reads as broken rather than weird.
 
@@ -8,10 +8,11 @@ The Weirdness Engine works differently. It treats weirdness as a precision instr
 
 ## What This Is
 
-A skill that runs in two modes:
+A skill that runs in three modes:
 
 - **Critique Mode** — Hand it an existing design (Figma file, screenshot, URL). It inventories the conventions the design is obeying, names the assumptions hiding in plain sight, and produces five directions that each violate a different one.
 - **Generate Mode** — Hand it a brand brief at project kickoff. It maps the category's conventions, identifies the brand's authentic territory, and produces five directions rooted in what makes that brand actually different from its competitors.
+- **Layout Mode** — Hand it an editorial brief, a spread, or a request for grid / type-geometry originality. It cites convention IDs from the layout inventory and produces five directions that each violate exactly one. An editorial or Paper executor then builds with `violate: {ID}` and holds the rest.
 
 Each run produces exactly five directions, each using a different technique, each targeting a different surface — so you get a real spread, not five variations on the same idea.
 
@@ -50,7 +51,7 @@ Then upload the resulting `weirdness-engine.skill` file in Cowork.
 
 ### Claude API / Agent SDK
 
-Reference `SKILL.md` as a system prompt or attach it as context. The two reference files load on demand based on the situation — `references/theory.md` for foundational reasoning, `references/techniques.md` for implementation detail.
+Reference `SKILL.md` as a system prompt or attach it as context. Reference files load on demand — `references/theory.md` for foundational reasoning, `references/techniques.md` for implementation detail, and the layout set (`layout-conventions.md`, `editorial-grids.md`, `clever-moments.md`, `letter-crop-scatter.md`) in Layout mode.
 
 ## Usage
 
@@ -65,6 +66,12 @@ The skill maps the category's conventions, identifies the brand's authentic terr
 > "Here's the current homepage at <url>. Run the weirdness engine on it."
 
 The skill inventories what the design is obeying, names the assumptions, and returns five directions to push it further.
+
+### Layout Mode (editorial / Paper spreads)
+
+> "We're designing the opener for a print + canvas feature. It should not look like an agent-default marketing page or a three-column magazine template. Run the weirdness engine in Layout mode."
+
+The skill loads the convention inventory, cites IDs, and returns five directions that each violate exactly one. See `examples/example-02-layout-mode.md` for a full worked output.
 
 ### Going Deeper
 
@@ -104,9 +111,14 @@ weirdness-engine/
 ├── SKILL.md                        The skill itself — invoked by Claude.
 ├── references/
 │   ├── theory.md                   Fisher, Shklovsky, cognitive science of weirdness.
-│   └── techniques.md               Implementation-level detail for each technique.
+│   ├── techniques.md               Implementation-level detail for each technique.
+│   ├── layout-conventions.md       Layout-mode inventory (E/D/H/G/P/T IDs).
+│   ├── editorial-grids.md          Grid literacy and the hold.
+│   ├── clever-moments.md           One surprise per spread; five lanes.
+│   └── letter-crop-scatter.md      Type-as-geometry recipe.
 ├── examples/
-│   └── example-01-quiet-studio.md  A worked Generate Mode output.
+│   ├── example-01-quiet-studio.md  A worked Generate Mode output.
+│   └── example-02-layout-mode.md   A worked Layout Mode output.
 └── .gitignore
 ```
 
@@ -130,7 +142,7 @@ MIT — see [LICENSE](LICENSE). Use it, fork it, ship it. Attribution appreciate
 
 Issues and PRs welcome. The two areas where the skill benefits most from outside input:
 
-- **More worked examples** in `examples/` — different categories, different brands. Real briefs that produced directions you actually shipped.
+- **More worked examples** in `examples/` — different categories, different brands, including Layout-mode editorial briefs. Real briefs that produced directions you actually shipped.
 - **New techniques** — if you find a kind of weirdness the six techniques don't cover, document it the way `references/techniques.md` documents the existing six and propose it.
 
 Anything that converges this skill toward the average is the wrong kind of contribution. Anything that sharpens its ability to depart from the average is the right kind.
